@@ -1,19 +1,18 @@
-package gov.irs.testproject.controller;
+package com.trial.testproject.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import gov.irs.testproject.models.Address;
-import gov.irs.testproject.models.CreditCard;
-import gov.irs.testproject.models.PersonWithAddress;
+import com.trial.testproject.models.PersonInfo;
+import com.trial.testproject.models.Address;
+import com.trial.testproject.models.CreditCard;
+import com.trial.testproject.models.PersonWithAddress;
 import org.jeasy.random.EasyRandom;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import gov.irs.testproject.models.PersonInfo;
 
 
 @RestController

@@ -1,4 +1,4 @@
-package gov.irs.testproject;
+package com.trial.testproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

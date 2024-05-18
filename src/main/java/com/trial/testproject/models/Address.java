@@ -1,4 +1,4 @@
-package gov.irs.testproject.models;
+package com.trial.testproject.models;
 
 import java.util.UUID;
 

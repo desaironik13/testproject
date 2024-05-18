@@ -1,4 +1,4 @@
-package gov.irs.testproject;
+package com.trial.testproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
