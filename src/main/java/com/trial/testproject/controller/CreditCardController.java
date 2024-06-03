@@ -1,28 +1,25 @@
 package com.trial.testproject.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
+import com.trial.testproject.models.CreditCard;
 import com.trial.testproject.models.PersonInfo;
-//import com.trial.testproject.models.Address;
-//import com.trial.testproject.models.CreditCard;
-//import com.trial.testproject.models.PersonWithAddress;
 import org.jeasy.random.EasyRandom;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 
 @RestController
-public class PersonController {
+public class CreditCardController {
 	EasyRandom generator = new EasyRandom();
 
-	@PostMapping("/personInfo")
-	List<PersonInfo> generatePersonInfo(@RequestParam("numberOfRecords") Optional<Integer> numberOfRecods) {
+	@PostMapping("/creditCard")
+	List<CreditCard> generateCreditCardInfo(@RequestParam("numberOfRecords") Optional<Integer> numberOfRecods) {
 //		PersonWithAddress personWithAddress = new PersonWithAddress();
-		List<PersonInfo> personInfos =  generator.objects(PersonInfo.class, numberOfRecods.orElse(10)).collect(Collectors.toList());
+		List<CreditCard> creditCards =  generator.objects(CreditCard.class, numberOfRecods.orElse(10)).collect(Collectors.toList());
 //		List<Address> addresses = new ArrayList<>();
 //		List<CreditCard> creditCards = new ArrayList<>();
 //		personWithAddress.setPersonInfo(personInfos);
@@ -39,7 +36,7 @@ public class PersonController {
 //					creditCards.add(creditCard);
 //				}));
 //		personWithAddress.setCreditCards(creditCards);
-		return personInfos;
+		return creditCards;
 	
 	}
 }

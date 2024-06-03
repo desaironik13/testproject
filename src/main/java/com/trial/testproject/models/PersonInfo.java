@@ -1,6 +1,9 @@
 package com.trial.testproject.models;
 
-import net.datafaker.Faker;
+
+import com.github.javafaker.Faker;
+import com.trial.testproject.annotations.IntegerDataCreator;
+import com.trial.testproject.annotations.processors.IntegerDataCreatorProcessor;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,15 +13,21 @@ public class PersonInfo {
 	private UUID personId;
 	private String firstName = new Faker().name().firstName();
 	private String lastName =  new Faker().name().lastName();
-	private String ssn = new Faker().expression("#{examplify '1231231230'}");
-	private String phoneNumber = new Faker().expression("#{examplify '1231231230'}");
-	private String mobileNumber = new Faker().expression("#{examplify '1231231230'}");
+	@IntegerDataCreator(max = 999999999, min = 100000000, constant="SSNS")
+	private Integer ssn;
+
+	@IntegerDataCreator(max = Integer.MAX_VALUE, min = 1111111111)
+	private Integer phoneNumber;
+
+	@IntegerDataCreator(max = Integer.MAX_VALUE, min = 1111111111)
+	private Integer mobileNumber;
 	private String emailId = new Faker().internet().emailAddress();
 
 	
 	
-	public PersonInfo() {
+	public PersonInfo() throws Exception {
 		super();
+		IntegerDataCreatorProcessor.generateInteger(this);
 		// TODO Auto-generated constructor stub
 	}
 	public UUID getPersonId() {
@@ -39,24 +48,18 @@ public class PersonInfo {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getSsn() {
+	public Integer getSsn() {
 		return ssn;
 	}
-	public void setSsn(String ssn) {
-		this.ssn = ssn;
-	}
-	public String getPhoneNumber() {
+
+	public Integer getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public String getMobileNumber() {
+
+	public Integer getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+
 	public String getEmailId() {
 		return emailId;
 	}
